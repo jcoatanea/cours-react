@@ -23,7 +23,7 @@ const News = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (content.length < 140) {
+        if (content.length < 40) {
             setError(true);
         } else {
             axios.post('http://localhost:3003/articles', {
@@ -54,7 +54,7 @@ const News = () => {
                 <input type="text" placeholder="Nom" value={author} onChange={(e) => setAuthor(e.target.value)} />
                 <textarea style={{ border: error ? "1px solid red" : "1px solid #61dafb" }} placeholder="Message" value={content} onChange={(e) => setContent(e.target.value)}></textarea>
                 {/* si error est true alors (&&) on affiche le texte */}
-                {error && <p>Veuillez ecrire min 140 caractères</p>}
+                {error && <p>Veuillez ecrire min 40 caractères</p>}
                 <input type="submit" value="Envoyer" />
             </form>
 
